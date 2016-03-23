@@ -1,7 +1,17 @@
 /* Empty. Add your own CSS if you like */
+
+/* hide some of the ranking columns on smaller screens */
 @media screen and (max-width: 767px) {
     .hidden-xs {
         display:none;
     }
 }
 
+/* normal scrolling instead of normal ionic mobile-centric scrolling. (note we also set a default in app.js) */
+.card {
+    margin: 0 0;
+}
+
+.overflow-scroll {
+    overflow-y: auto;
+}

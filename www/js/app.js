@@ -21,6 +21,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
     });
 })
+.config(function ($ionicConfigProvider) {
+
+    // globally default to "regular" scrollbars instead of mobile-style scrolling
+    $ionicConfigProvider.scrolling.jsScrolling(false);
+})
 
 .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
