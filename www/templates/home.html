@@ -20,8 +20,8 @@
         <div class="item item-divider">
             Rankings
         </div>
-        <div class="row" ng-repeat="rankingArr in event.rankings">
-            <span class="col" ng-repeat="ranking in rankingArr" ng-class="{'hidden-xs' :$index > 4}">
+        <div class="row" ng-repeat="rankingArr in event.rankings track by $index">
+            <span class="col" ng-repeat="ranking in rankingArr track by $index" ng-class="{'hidden-xs' :$index > 4}">
                 {{ranking}}
             </span>
         </div>

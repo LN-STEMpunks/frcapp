@@ -123,18 +123,17 @@ angular.module('starter.controllers', [])
         $scope.loadCompleted = false;
         frcapiService.getTeamEvents(key, pYear).then(function (response) {
             $scope.events = response.data;
-            for (var i = 0; i < response.data.length; ++i) {
-                var evt = response.data[i];
+            
+            response.data.forEach(function (evt, evtIndex) {
                 evt.rankings = [];
-                frcapiService.getEventRankings(evt.key).then(function(rsp) {
-                    for (var j = 0; j < rsp.data.length; ++j) {
-                        var curD = rsp.data[j];
-                        if ((curD && curD[1] == "3966") || j == 0) {
+                frcapiService.getEventRankings(evt.key).then(function (rsp) {
+                    rsp.data.forEach(function (curD, curDIndex) {
+                        if ((curD && curD[1] == "3966") || curDIndex == 0) {
                             evt.rankings.push(curD);
                         }
-                    }
+                    });
                 });
-            }
+            });
         })
         $scope.loadCompleted = true;
 
