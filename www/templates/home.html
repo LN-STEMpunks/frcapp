@@ -20,11 +20,13 @@
         <div class="item item-divider">
             Rankings
         </div>
-        <div class="row" ng-repeat="rankingArr in event.rankings track by $index">
-            <span class="col" ng-repeat="ranking in rankingArr track by $index" ng-class="{'hidden-xs' :$index > 4}">
-                {{ranking}}
-            </span>
-        </div>
+        <table border="1" width="100%" ID="Table2" style="margin: 0px;">
+            <tr ng-repeat="rankingArr in event.rankings track by $index">
+                <td  ng-repeat="ranking in rankingArr track by $index" ng-class="{'hidden-xs' :$index > 4}">
+                    {{ranking}}
+                </td>
+            </tr>
+        </table>
     </div>
     </ion-item>
 </ion-item>
