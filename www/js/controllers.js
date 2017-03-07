@@ -44,7 +44,7 @@ angular.module('starter.controllers', [])
 .controller('TeamCtrl', function($scope, $stateParams, frcapiService) {
 
     $scope.loadCompleted = false;
-    $scope.year = 2016;
+    $scope.year = 2017;
     $scope.team = {};
     frcapiService.getTeam($stateParams.key).then(function(response) {
         $scope.team = response.data;
@@ -57,7 +57,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('EventsCtrl', function($scope, $stateParams, frcapiService) {
-    $scope.year = 2016;
+    $scope.year = 2017;
     $scope.events = [];
     $scope.loadCompleted = false;
     frcapiService.getEvents($scope.year).then(function(response) {
@@ -74,7 +74,7 @@ angular.module('starter.controllers', [])
         $scope.event = response.data;
         if ($scope.event) {
             frcapiService.getEventRankings($scope.event.key).then(function (rsp) {
-             $scope.event.rankings = rsp.data; 
+             $scope.event.rankings = rsp.data;
          });
         }
         $scope.loadCompleted = true;
@@ -109,8 +109,8 @@ angular.module('starter.controllers', [])
     $scope.team = {};
     $scope.events = [];
     $scope.loadCompleted = false;
-    $scope.year = '2016';
-    this.year = '2016';
+    $scope.year = '2017';
+    this.year = '2017';
     $scope.yearChanged = function () {
         $scope.getData(this.year);
     };
@@ -123,7 +123,7 @@ angular.module('starter.controllers', [])
         $scope.loadCompleted = false;
         frcapiService.getTeamEvents(key, pYear).then(function (response) {
             $scope.events = response.data;
-            
+
             response.data.forEach(function (evt, evtIndex) {
                 evt.rankings = [];
                 frcapiService.getEventRankings(evt.key).then(function (rsp) {
